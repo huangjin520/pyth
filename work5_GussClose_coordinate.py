@@ -13,10 +13,7 @@ plt.hist(blur.ravel(),16,[0,200]); plt.show()
 #kernel = np.ones((3,3),np.uint8)
 kernel =cv2.getStructuringElement(cv2.MORPH_RECT,(4,3))
 closing = cv2.morphologyEx(threshimg, cv2.MORPH_CLOSE, kernel)
-#img = cv2.erode(threshimg, kernel, iterations=2)
-#img = cv2.dilate(img, kernel, iterations=3)
 contours, hierarchy = cv2.findContours(closing, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-#cv2.drawContours(resize, contours, -1, (0, 255, 0), 3)
 x=len(contours )
 for i in range(1,x,1):
     cnt=contours[i]
@@ -31,22 +28,7 @@ print('芽点数量：',x-1 )
 cv2.namedWindow("drawing",cv2.WINDOW_AUTOSIZE)
 
 cv2.imshow('drawing', resize )
-#cv2.imshow('closing ', closing )
-#cv2.imshow('grayimg', grayimg)
-#cv2.imshow('blur', blur)
-#cv2.imshow('threshimg ', threshimg)
-#cv2.imshow('closing ', closing)
-#print(threshimg)
 
-#plt.subplot(121)
-#plt.imshow(threshimg,'gray')
-#plt.title('threshimg')
-#plt.xticks([]),plt.yticks([])
-#plt.subplot(122)
-#plt.imshow(closing,'gray')
-#plt.title('closing')
-#plt.xticks([]),plt.yticks([])
-#plt.show()
 titles = [ 'grayimg', 'blur', 'threshimg', 'closing']
 images = [ grayimg, blur, threshimg, closing]
 
