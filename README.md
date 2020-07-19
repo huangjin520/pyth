@@ -5,4 +5,4 @@ I choose threshold segmentation to find the rubber buds' contours .
 Language :python 
 
 platform :OpenCV
-![image]()
+![image](https://github.com/huangjin520/pyth/blob/master/7.jpg)
